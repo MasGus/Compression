@@ -3,3 +3,5 @@ MD5.txt
 Murmur.txt
 SHA-256.txt
 .idea/
+target/
+*.iml
