@@ -5,6 +5,8 @@
 import java.io.*;
 import java.math.BigInteger;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.util.ArrayList;
 
 
@@ -12,10 +14,10 @@ public class Main {
     private final static int CHUNK_BYTE_SIZE = 4*1024;
     private final static String FILE_NAME = "Tiger.txt";
 
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException, NoSuchAlgorithmException, NoSuchProviderException{
         ArrayList<FileMetaData> fileMetadataList = new ArrayList<FileMetaData>();
-        //searchFiles("C:\\Users\\Masha", fileMetadataList);
-        searchFiles("C:\\Users\\Masha\\Desktop\\ЕМС\\Новая папка", fileMetadataList);
+        searchFiles("C:\\Users\\Masha", fileMetadataList);
+        //searchFiles("C:\\Users\\Masha\\Desktop\\ЕМС\\Новая папка", fileMetadataList);
 
         chunksHashes(fileMetadataList);
 
@@ -47,7 +49,7 @@ public class Main {
     }
 
     // Вычисление и запись хешей фиксированных хешей каждого файла из списка файлов
-    public static void chunksHashes(ArrayList<FileMetaData> fileMetadataList) throws IOException{
+    public static void chunksHashes(ArrayList<FileMetaData> fileMetadataList) throws IOException, NoSuchAlgorithmException, NoSuchProviderException {
         File file = new File(FILE_NAME);
         FileWriter writer = new FileWriter(file);
         for (int i = 0; i < fileMetadataList.size(); i++){

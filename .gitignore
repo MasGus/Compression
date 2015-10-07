@@ -1,7 +1,4 @@
-Adler-32.txt
-MD5.txt
-Murmur.txt
-SHA-256.txt
+*.txt
 .idea/
 target/
 *.iml
